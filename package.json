@@ -1,0 +1,23 @@
+{
+  "name": "discord-bot",
+  "version": "0.0.1",
+  "description": "This bot is to interact with our twitter bot and handle events and pass into commands for discord.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirmagiclunchbox/cardboard-haus-discord.git"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "Derek Pruitt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sirmagiclunchbox/cardboard-haus-discord/issues"
+  },
+  "homepage": "https://github.com/sirmagiclunchbox/cardboard-haus-discord#readme"
+}
