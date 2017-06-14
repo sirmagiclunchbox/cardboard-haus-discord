@@ -4,7 +4,8 @@
   "description": "This bot is to interact with our twitter bot and handle events and pass into commands for discord.",
   "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/sirmagiclunchbox/cardboard-haus-discord/issues"
   },
-  "homepage": "https://github.com/sirmagiclunchbox/cardboard-haus-discord#readme"
+  "homepage": "https://github.com/sirmagiclunchbox/cardboard-haus-discord#readme",
+  "dependencies": {
+    "discord.js": "^11.1.0",
+    "opusscript": "0.0.3",
+    "ytdl-core": "^0.14.4"
+  }
 }

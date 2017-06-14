@@ -31,13 +31,13 @@ bot.on("message", function(message) {
     case "twitter":
       message.channel.send("#placeholder for twiiter command");
       break;
-    case "dice"
+    case "dice":
       message.channel.send("#placeholder for dice roll command");
       break;
 
+    default:
+      message.channel.send("Invaild Command! Please use !help for more info.");
   }
 });
-
-
 
 bot.login(TOKEN);
