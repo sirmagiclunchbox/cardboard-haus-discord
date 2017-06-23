@@ -1,42 +1,64 @@
-console.log("The bot is starting...");
+'use strict';
+console.log('The bot is starting...');
 
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 const bot = new Discord.Client();
-const TOKEN = "MzI0MDY0OTY4MTk2NDg5MjE4.DCEQpA._J1hSi3ysIoSPHmBWVh_Klk2uoQ";
-const PREFIX = "!"
+const PREFIX = '!';
 
-bot.on("ready", function() {
-  console.log("The bot is ready!");
+var TOKEN = require('./config/authorisation');
+var eightBall = require('./exports/8ball');
+
+bot.on('ready', () => {
+  console.log('The bot is ready!');
 });
 
-bot.on("message", function(message) {
-  if (message.author.equals(bot.user)) return;
+bot.on('ready', () => {
+  console.log(`Logged in as ${bot.user.tag}!`);
+});
 
-  if (!message.content.startsWith(PREFIX)) return;
-  var args = message.content.substring(PREFIX.length).split(" ");
+
+bot.on('guildMemberAdd', member => {
+  member.guild.defaultChannel.send(`Welcome to Cardboard Haus, ${member}!`);
+
+  const channel = member.guild.channels.find('name', 'member-log');
+  if (!channel) return;
+  channel.send(`Welcome to the server, ${member}`);
+});
+
+bot.on('mesasge', msg => {
+
+  if (!msg.content.startsWith(PREFIX)) return;
+  var args = msg.content.substring(PREFIX.length).split('');
 
   switch (args[0].toLowerCase()) {
-    case "ping":
-      message.channel.send("#placeholder for the ping command");
+    case 'ping':
+      msg.reply('Pong!');
       break;
-    case "info":
-      message.channel.send("#placeholder for info command");
+    case 'info':
+      msg.reply('placeholder for info command');
       break;
-    case "help":
-      message.channel.send("#placeholder for help command");
+    case 'help':
+      msg.reply('placeholder for help command');
       break;
-    case "music":
-      message.channel.send("#placeholder for music command");
+    case 'music':
+      msg.reply('placeholder for music command');
       break;
-    case "twitter":
-      message.channel.send("#placeholder for twiiter command");
+    case 'twitter':
+      msg.reply('placeholder for twitter command');
       break;
-    case "dice":
-      message.channel.send("#placeholder for dice roll command");
+    case 'dice':
+      msg.reply('placeholder for dice command');
+      break;
+    case '8ball':
+      if (args[1]) {
+        msg.reply(eightBallAnswers[Math.floor(Math.random() * eightBallAnswers.length)]);
+      } else {
+        msg.reply('You can\'t have an answer without a question!');
+      }
       break;
 
     default:
-      message.channel.send("Invaild Command! Please use !help for more info.");
+      msg.reply('Invaild Command! Please use !help for more info.');
   }
 });
 
