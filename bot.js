@@ -5,8 +5,11 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const PREFIX = '!';
 
-var TOKEN = require('./config/authorisation');
-var eightBall = require('./exports/8ball');
+var authorisation = require('./config/authorisation').authorisation;
+var eightBall = require('./exports/8ball').eightBall;
+
+authorisation();
+eightBall ();
 
 bot.on('ready', () => {
   console.log('The bot is ready!');
@@ -61,5 +64,3 @@ bot.on('mesasge', msg => {
       msg.reply('Invaild Command! Please use !help for more info.');
   }
 });
-
-bot.login(TOKEN);
