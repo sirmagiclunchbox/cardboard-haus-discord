@@ -1,3 +1,5 @@
+//comment
+
 'use strict';
 console.log('The bot is starting...');
 
