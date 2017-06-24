@@ -52,7 +52,7 @@ bot.on('mesasge', msg => {
       msg.reply('placeholder for twitter command');
       break;
     case 'dice':
-      msg.reply('placeholder for dice command');
+        msg.reply(Math.floor(Math.random() * (7 - 1)) + 1);
       break;
     case '8ball':
       if (args[1]) {
